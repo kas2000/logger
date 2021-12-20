@@ -32,7 +32,7 @@ func New(logLevel string, fields ...zapcore.Field) (Logger, error) {
 		zapcore.NewConsoleEncoder(encoderCfg),
 		zapcore.Lock(os.Stdout),
 		atom,
-	), zap.AddCaller()).With(fields...)
+	)).With(fields...)
 
 	defer l.Sync()
 
